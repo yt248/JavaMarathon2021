@@ -18,17 +18,19 @@ package day4;
  */
 public class Task4 {
     public static void main(String[] args) {
-        int[] array = new int[10];
-//        int[] array = {1, 456, 1025, 65, 954, 2789, 4, 8742, 1040, 3254};
+//        int[] array = new int[10];
+        int[] array = {1, 456, 1025, 65, 954, 2789, 4, 8742, 1040, 3254};
         int maxSum3elements = 0;
         int indexI = 0;
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) Math.round(Math.random() * 10);
+//            array[i] = (int) Math.round(Math.random() * 10);
             System.out.print(array[i] + " ");
         }
         for (int i = 0; i < array.length - 2; i++) {
-            int sum = array[i] + array[i + 1] + array[i + 2];
-
+            int sum = 0;
+            for (int j = 0; j < 3; j++) {
+                sum += array[j + i];
+            }
             if (maxSum3elements <= sum) {
                 maxSum3elements = sum;
                 indexI = i;

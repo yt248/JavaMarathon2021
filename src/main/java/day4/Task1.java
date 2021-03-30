@@ -32,27 +32,40 @@ public class Task1 {
         }
         System.out.println(Arrays.toString(array));
 
+
         int numbersMoreEight = 0;
-        int numbersEqualsOne = 0;
-        int quantityOddNumbers = 0;
-        int quantityEvenNumbers = 0;
-        int sumAllNumbersArray = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > 8) {
+        for (int k : array) {
+            if (k > 8) {
                 numbersMoreEight++;
-            } else if (array[i] == 1) {
-                numbersEqualsOne++;
-            } else if (array[i] % 2 == 0) {
-                quantityOddNumbers++;
-            } else if (array[i] % 2 != 0) {
-                quantityEvenNumbers++;
             }
-
-            sumAllNumbersArray += i;
-
         }
 
+
+        int numbersEqualsOne = 0;
+        for (int j : array) {
+            if (j == 1) {
+                numbersEqualsOne++;
+            }
+        }
+
+        int sumAllNumbersArray = 0;
+        for (int j : array) {
+            sumAllNumbersArray += j;
+        }
+
+        int quantityOddNumbers = 0;
+        for (int j : array) {
+            if (j % 2 == 0) {
+                quantityOddNumbers++;
+            }
+        }
+
+        int quantityEvenNumbers = 0;
+        for (int j : array) {
+            if (j % 2 != 0) {
+                quantityEvenNumbers++;
+            }
+        }
         System.out.println();
         System.out.println("Информация о массиве:");
         System.out.println("Длинна массива:" + array.length);

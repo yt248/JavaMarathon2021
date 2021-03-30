@@ -24,12 +24,14 @@ public class Player {
     }
 
     public void run() {
+        if (stamina == 0)
+            return;
+
+        stamina--;
+
         if (stamina == 0) {
             System.out.println("Игроку нужен отдых, он уходит");
             countPlayers--;
-        }
-        if (stamina > 0) {
-            stamina--;
         }
     }
 

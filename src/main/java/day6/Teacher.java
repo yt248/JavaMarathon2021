@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Teacher {
     private String name;
-    private String predmet;
+    private String subjectName;
 
     public String getName() {
         return name;
@@ -14,32 +14,32 @@ public class Teacher {
         this.name = name;
     }
 
-    public String getPredmet() {
-        return predmet;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setPredmet(String predmet) {
-        this.predmet = predmet;
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
-    public Teacher(String name, String predmet) {
+    public Teacher(String name, String subjectName) {
         this.name = name;
-        this.predmet = predmet;
+        this.subjectName = subjectName;
     }
 
     public void evaluate(Student student) {
         Random random = new Random();
-        int x = random.nextInt(4) + 1;
-        String ocenka;
+        int x = random.nextInt(4) + 2;
+        String rating;
         if (x == 2) {
-            ocenka = "неудовлетворительно";
+            rating = "неудовлетворительно";
         } else if (x == 3) {
-            ocenka = "удовлетворительно";
+            rating = "удовлетворительно";
         } else if (x == 4) {
-            ocenka = "хорошо";
+            rating = "хорошо";
         } else {
-            ocenka = "отлично";
+            rating = "отлично";
         }
-        System.out.println("Преподаватель " + this.name + " оценил студента с именем " + student.getName() + " по предмету " + this.predmet + " на оценку " + ocenka);
+        System.out.println("Преподаватель " + this.name + " оценил студента с именем " + student.getName() + " по предмету " + this.subjectName + " на оценку " + rating);
     }
 }

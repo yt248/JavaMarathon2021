@@ -17,20 +17,18 @@ import java.util.Random;
 public class Task2 {
     public static void main(String[] args) {
         int[] array = new int[10000];
-
         Random random = new Random();
+
         for (int i = 0; i < array.length; i++) {
-//            array[i] = (int) Math.round(Math.random() * 100);
             array[i] = random.nextInt(100);
         }
 
-        int maxArr = 0;
-        int minArr = 99;
+        int maxArr = Integer.MIN_VALUE;
+        int minArr = Integer.MAX_VALUE;
         int quantityElementsEqualsZero = 0;
         int sumElementsEqualsZero = 0;
 
         for (int arr : array) {
-//            System.out.print(arr + " ");
             if (arr % 10 == 0) {
                 quantityElementsEqualsZero++;
                 sumElementsEqualsZero += arr;
