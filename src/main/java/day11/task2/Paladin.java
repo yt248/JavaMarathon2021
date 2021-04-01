@@ -1,10 +1,11 @@
 package day11.task2;
 
-public class Paladin extends Hero implements PhysAttack, Healer {
-    private int physAtt; //(величина физической атаки)
+public class Paladin extends Hero implements Healer {
 
     public Paladin() {
-        super(100, 50, 20);
+        this.health = 100;
+        this.physDef = 50;
+        this.magicDef = 20;
         this.physAtt = 15;
     }
 
@@ -32,18 +33,6 @@ public class Paladin extends Hero implements PhysAttack, Healer {
             hero.health += 10;
         } else {
             hero.health = 100;
-        }
-    }
-
-    @Override
-    public void physicalAttack(Hero hero) {
-        int health = hero.getHealth();
-
-        health -= this.physAtt - (this.physAtt * hero.physDef / 100);
-        if (health > 0) {
-            hero.setHealth(health);
-        } else {
-            hero.setHealth(0);
         }
     }
 

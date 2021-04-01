@@ -20,6 +20,14 @@ public class Warehouse {
         return countDeliveredOrders;
     }
 
+    public void addCountDeliveredOrders(){
+        countDeliveredOrders++;
+    }
+
+    public void addCountPickedOrders(){
+        countPickedOrders++;
+    }
+
 
     @Override
     public String toString() {

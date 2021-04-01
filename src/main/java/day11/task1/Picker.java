@@ -4,7 +4,7 @@ public class Picker implements Worker {
 
 
     private int salary; // Заработная плата
-    private int isPayed; //был выплачен бонус или нет
+    private boolean isPayed; //был выплачен бонус или нет
 
     private Warehouse warehouse;
 
@@ -17,7 +17,7 @@ public class Picker implements Worker {
         return salary;
     }
 
-    public int getIsPayed() {
+    public boolean getIsPayed() {
         return isPayed;
     }
 
@@ -33,22 +33,20 @@ public class Picker implements Worker {
 
     @Override
     public void doWork() {
-        int counter = warehouse.getCountPickedOrders();
+        warehouse.addCountPickedOrders();
         salary += 80;
-        counter++;
-        warehouse.setCountPickedOrders(counter);
-        if (counter == 10000) {
-            this.isPayed = 1;
+        if (warehouse.getCountPickedOrders() == 10000) {
+            this.isPayed = true;
             warehouse.setCountPickedOrders(0);
         }
     }
 
     @Override
     public void bonus() {
-        if (this.isPayed == 1) {
+        if (this.isPayed) {
             salary += 70000;
-            this.isPayed = 2;
-        } else if (this.isPayed == 2) {
+            this.isPayed = false;
+        } else if (!this.isPayed) {
             System.out.println("Бонус уже был выплачен");
         } else {
             System.out.println("Бонус пока не доступен");
