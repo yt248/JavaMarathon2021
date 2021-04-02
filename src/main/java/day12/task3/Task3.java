@@ -36,11 +36,12 @@ public class Task3 {
     }
 
     public static List<MusicBand> groupsAfter2000(List<MusicBand> bands) {
-        for (int i = 0; i < bands.size(); i++) {
-            if (bands.get(i).getYear() < 2000) {
-                bands.remove(i);
-            }
-        }
-        return bands;
+       List<MusicBand> newListGroupsAfter2000 = new ArrayList<>();
+       for (MusicBand mb : bands){
+           if (mb.getYear() > 2000)
+               newListGroupsAfter2000.add(mb);
+       }
+
+        return newListGroupsAfter2000;
     }
 }

@@ -47,6 +47,7 @@ public class MusicBand {
 
     public static void transferMembers(MusicBand a, MusicBand b) {
         b.groupMembers.addAll(0, a.getGroupMembers());
+        a.groupMembers.clear();
 //        for (int i = 0;i < a.groupMembers.size(); i++){
 //            b.groupMembers.add(a.groupMembers.get(i));
 //        }

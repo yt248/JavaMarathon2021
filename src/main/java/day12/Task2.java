@@ -11,11 +11,10 @@ public class Task2 {
 
         List<Integer> integerList = new ArrayList<>();
 
-        for (int i = 0; i < 31; i++) {
-            integerList.add(i);
-        }
+        for (int i = 0; i < 351; i++) {
+            if (i > 30 && i < 300)
+                continue;
 
-        for (int i = 300; i < 351; i++) {
             integerList.add(i);
         }
 
