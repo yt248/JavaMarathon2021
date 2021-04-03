@@ -2,6 +2,7 @@ package day13;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
     private String username;
@@ -25,34 +26,29 @@ public class User {
     }
 
     public boolean isSubscribed(User user) {
-        boolean isSubscribed = false;
-        for (User thisUser : this.subscriptions) {
-            if (thisUser.username.equals(user.username)) {
-                isSubscribed = true;
-            }
-        }
-        return isSubscribed;
+        return subscriptions.contains(user);
     }
 
     public boolean isFriend(User user) {
-        int count = 0;
-        for (User thisUser : this.subscriptions) {
-            if (thisUser.username.equals(user.username))
-                count++;
-        }
-
-        for (User user1 : user.subscriptions) {
-            if (user1.username.equals(this.username))
-                count++;
-        }
-
-        return count == 2;
+        return subscriptions.contains(user) && user.getSubscriptions().contains(this);
     }
 
     public void sendMessage(User user, String text) {
         MessageDatabase.addNewMessage(new User(this.username), user, text);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
+    }
 
     @Override
     public String toString() {
@@ -60,4 +56,6 @@ public class User {
                 "username='" + username + '\'' +
                 '}';
     }
+
+
 }
