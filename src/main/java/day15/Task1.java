@@ -12,7 +12,6 @@ public class Task1 {
 
 
         File file = new File(path);
-        String[] newSplitLine = new String[0];
         try {
             PrintWriter pw = new PrintWriter(missing_shoes);
 
@@ -20,23 +19,12 @@ public class Task1 {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] splitLine = line.split(";");
-                for (int i = 0; i < splitLine.length; i++) {
-                    if (Integer.parseInt(splitLine[i += 2]) == 0) {
-                        for (int j = i - 2; j < 3; j++) {
-                            if (j < 2) {
-                                pw.print(splitLine[j]);
-                                pw.print(", ");
-                            } else {
-                                pw.print(splitLine[j]);
-                                pw.println();
-                            }
-                        }
-                    }
+                if (Integer.parseInt(splitLine[2]) == 0) {
+                    pw.println(String.format("%s, %d, %d", splitLine[0], Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2])));
                 }
             }
 
             pw.close();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
